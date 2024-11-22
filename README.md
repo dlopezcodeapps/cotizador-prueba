@@ -1,66 +1,128 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Cotizador - Prueba Técnica
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Descripción
+Cotizador es una aplicación web desarrollada como parte de una prueba técnica. Permite la gestión de clientes, productos, cotizaciones y generación de PDFs para las cotizaciones realizadas. Está construido con tecnologías modernas como Laravel, Vue 3 e Inertia.js.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Tecnologías Utilizadas
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Backend:
+- **Laravel 10**: Framework PHP para el backend y API REST.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Frontend:
+- **Vue 3**: Framework JavaScript para la interfaz de usuario.
+- **Inertia.js**: Comunicación fluida entre el frontend y backend.
+- **Tailwind CSS**: Framework CSS para estilos rápidos y responsivos.
 
-## Learning Laravel
+### Otros:
+- **MySQL**: Base de datos relacional.
+- **Vite**: Empaquetador rápido para frontend.
+- **Node.js**: Gestión de dependencias y herramientas del proyecto.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Características Principales
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Clientes
+- Crear y listar clientes.
+- Seleccionar clientes en la creación de cotizaciones.
 
-## Laravel Sponsors
+### Productos
+- Gestión de productos con precios y stock dinámicos.
+- Búsqueda e integración de precios por cantidad.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Cotizaciones
+- Crear cotizaciones asignadas a un cliente.
+- Listar y visualizar detalles de cotizaciones.
+- Generar PDF con los detalles de la cotización.
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## Despliegue
+El proyecto está desplegado y accesible en:
+[http://cotizador.codeapps.cl/](http://cotizador.codeapps.cl/)
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Instalación Local
+Siga estos pasos para correr el proyecto en su máquina local:
 
-## Code of Conduct
+### Pre-requisitos
+- PHP >= 8.1
+- Composer
+- Node.js y npm
+- MySQL
+- Servidor web (Apache o Nginx)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Pasos
+1. **Clonar el repositorio:**
+   ```bash
+   git clone https://github.com/dlopezcodeapps/cotizador-prueba.git
+   cd cotizador-prueba
+   ```
 
-## Security Vulnerabilities
+2. **Instalar dependencias de PHP:**
+   ```bash
+   composer install
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+3. **Instalar dependencias de Node.js:**
+   ```bash
+   npm install
+   ```
 
-## License
+4. **Configurar variables de entorno:**
+   Copiar el archivo `.env.example` como `.env` y editar las variables de conexión a la base de datos.
+   ```bash
+   cp .env.example .env
+   ```
+   Actualizar los campos relevantes como `DB_DATABASE`, `DB_USERNAME` y `DB_PASSWORD`.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+5. **Generar la clave de aplicación:**
+   ```bash
+   php artisan key:generate
+   ```
+
+6. **Migrar y poblar la base de datos:**
+   ```bash
+   php artisan migrate --seed
+   ```
+
+7. **Compilar recursos:**
+   ```bash
+   npm run build
+   ```
+
+8. **Levantar el servidor local:**
+   ```bash
+   php artisan serve
+   ```
+   Acceder en: `http://localhost:8000`
+
+---
+
+## Estructura del Proyecto
+
+### Backend
+- **`app/Models`**: Modelos para Clientes, Productos, Precios y Cotizaciones.
+- **`app/Http/Controllers`**: Controladores para manejar las solicitudes HTTP.
+- **`routes/web.php`**: Definición de rutas.
+
+### Frontend
+- **`resources/js/Pages`**: Vistas y componentes principales para cada página.
+- **`resources/js/Components`**: Componentes reutilizables como tablas, formularios y diálogos.
+
+---
+
+## Contacto
+Creador: **Diego López**
+- **Correo:** [diego.lopez2000@hotmail.com](mailto:diego.lopez2000@hotmail.com)
+- **Teléfono:** +56992048648
+- **GitHub:** [https://github.com/dlopezcodeapps](https://github.com/dlopezcodeapps)
+
+---
+
+## Licencia
+Este proyecto es solo para fines de evaluación técnica y no está licenciado para su uso comercial.
+
