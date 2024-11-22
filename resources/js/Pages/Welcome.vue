@@ -39,7 +39,7 @@
     <Toaster />
 </template>
 
-<script setup lang="ts">
+<script setup >
 import { Link } from '@inertiajs/vue3'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Toaster } from '@/components/ui/sonner'
@@ -50,7 +50,7 @@ import "jspdf-autotable";
 defineProps({ cotizaciones: Object })
 
 
-function descargarCotizacion(cotizacion: any) {
+function descargarCotizacion(cotizacion) {
     const doc = new jsPDF();
 
     // Encabezado
@@ -63,7 +63,7 @@ function descargarCotizacion(cotizacion: any) {
 
     // Agregar detalles de los productos
     const tableColumn = ["Producto", "Precio Unitario", "Cantidad", "Subtotal"];
-    const tableRows = cotizacion.detalles.map((detalle: any) => {
+    const tableRows = cotizacion.detalles.map((detalle) => {
         const producto = detalle.producto?.nombre || "Producto no encontrado";
         const precio = detalle.precio_stock?.precio?.toFixed(2) || "0.00";
         const cantidad = detalle.cantidad || 0;
@@ -79,7 +79,7 @@ function descargarCotizacion(cotizacion: any) {
     });
 
     // Total
-    const finalY = (doc as any).lastAutoTable.finalY || 45;
+    const finalY = (doc).lastAutoTable.finalY || 45;
     doc.text(`Total: $${cotizacion.total.toFixed(2)}`, 14, finalY + 10);
 
     // Guardar el PDF
