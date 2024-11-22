@@ -11,21 +11,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('cotizaciones', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->decimal('price', 10, 2);
-            $table->integer('stock');
+            $table->foreignId('cliente_id')->constrained('clientes')->onDelete('cascade');
+            $table->decimal('total', 10, 2);
             $table->timestamps();
         });
     }
-    
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('cotizaciones');
     }
 };

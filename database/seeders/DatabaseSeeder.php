@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Producto;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,11 +14,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+       // Crear 10 productos, cada uno con 3 precios/stocks
+       Producto::factory()
+       ->count(10) // Crear 10 productos
+       ->withPreciosStocks(3) // Cada producto tiene 3 precios/stocks
+       ->create();
     }
 }
